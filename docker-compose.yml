@@ -1,0 +1,11 @@
+version: "2.4"
+services:
+  render:
+    image: pataquets/gmediarender
+    hostname: ${HOSTNAME:-gmediarender}
+    restart: unless-stopped
+    network_mode: host
+    command:
+      - "--logfile=stdout"
+      - "--gstout-audiosink=fakesink"
+      - "--gstout-videosink=cacasink"
